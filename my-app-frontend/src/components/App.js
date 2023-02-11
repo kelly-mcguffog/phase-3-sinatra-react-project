@@ -1,20 +1,32 @@
 import '../index.css';
-import React, {useState, useEffect} from "react";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import ArtworksContainer from './ArtworksContainer';
+import HomeContainer from './HomeContainer';
+import ArtistsContainer from './ArtistsContainer';
+import NavBar from './Navbar';
 
 function App() {
-  
-  const [artworks, setArtworks] = useState([])
-  useEffect(() => {
-      fetch("http://localhost:9292/artworks")
-      .then(res => res.json())
-      .then(data => setArtworks(data))
-  },[])
 
   return (
-    <div className="App">
-      <ArtworksContainer artworks={artworks}/>
-    </div>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <HomeContainer />
+          </Route>
+          <Route path="/artworks">
+            <ArtworksContainer />
+          </Route>
+          <Route path="/artists">
+            <ArtistsContainer />
+          </Route>
+        </Switch>
+      </Router>
   );
 }
 
