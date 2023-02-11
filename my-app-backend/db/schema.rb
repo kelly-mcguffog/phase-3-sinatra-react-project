@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2023_02_04_234606) do
     t.string "description"
     t.string "medium"
     t.integer "price"
-    t.date "date_created"
+    t.integer "year_created"
     t.string "image_url"
     t.integer "artist_id"
   end

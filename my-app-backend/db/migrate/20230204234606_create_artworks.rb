@@ -5,7 +5,7 @@ class CreateArtworks < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :medium
       t.integer :price
-      t.date :date_created
+      t.integer :year_created
       t.string :image_url
       t.integer :artist_id
     end
