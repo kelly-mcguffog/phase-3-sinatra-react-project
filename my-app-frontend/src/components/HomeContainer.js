@@ -11,7 +11,7 @@ function HomeContainer(){
     
     return(
         <main id="container">
-            {featuredArt.map(artwork => <FeaturedCard key={artwork.id} featuredArt={artwork}/>)}
+            {featuredArt.map(featured => <FeaturedCard key={featured.id} featured={featured}/>)}
         </main>
     )
 }

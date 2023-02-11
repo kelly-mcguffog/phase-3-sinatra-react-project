@@ -1,13 +1,28 @@
 import React from "react";
 
-function FeaturedCard({featuredArt}){
-    const {id, title, date_created, image_url, artist} = featuredArt
+function FeaturedCard({featured}){
+    const {id, title, year_created, image_url, artist} = featured
+    const {name, birth_date, death_date, bio, headshot_url} = artist
     return(
-        <div className="featured-card">
-          <img className="featured-image" src={image_url} alt={title} />
-          {/* <h2>{title}</h2> */}
-          {/* <h4>{artist.name}</h4> */}
-          {/* <h4>{date_created}</h4> */}
+        <div className="featured-cards">
+            <div className="featured-artwork-card">
+                <div className="featured-image-container">
+                    <img className="featured-image" src={image_url} alt={title} />
+                </div>
+                <div className="featured-details">
+                    <h2>{title}</h2>
+                    <h4>{year_created}</h4>
+                </div>
+            </div>
+            <div className="featured-artist-card">
+                <div className="featured-details">
+                    <h2>{name}</h2>
+                    <h4>{birth_date}{death_date}</h4>
+                </div>
+                <div className="featured-image-container">
+                    <img className="featured-image" src={headshot_url} alt={name} />
+                </div>
+            </div>
         </div>
     )
 }
