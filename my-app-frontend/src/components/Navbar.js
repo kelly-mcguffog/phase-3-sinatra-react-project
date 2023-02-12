@@ -9,7 +9,7 @@ function NavBar(){
         <div id="nav-right">
             <NavLink className="navLink" to="/artists">Artists</NavLink>
             <NavLink className="navLink" to="/artworks">Artworks</NavLink>
-            <NavLink className="navLink" to="/add">Add Artwork</NavLink>
+            {/* <NavLink className="navLink" to="/add">New Artist</NavLink> */}
         </div>
     </div>
 

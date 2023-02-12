@@ -5,7 +5,7 @@ function ArtistCard({artist}){
     const {id, name, headshot_url} = artist
     return(
         <div className="card">
-        <Link to={`/artists/${id}`}>
+        <Link to={`/artists/${id}/details`}>
           <img className="card-image" src={headshot_url} alt={name} />
           {/* <h2>{title}</h2> */}
           {/* <h4>{artist.name}</h4> */}

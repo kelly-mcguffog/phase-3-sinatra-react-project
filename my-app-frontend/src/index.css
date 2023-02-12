@@ -55,6 +55,7 @@ body{
 .info{
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .details-container{
   width: 500px;
@@ -62,4 +63,49 @@ body{
 .image-container{
   width: 350px;
   height: 250px;
+}
+.artwork{
+  display: block;
+  margin: 50px;
+}
+
+
+
+
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  margin: 8px 0;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  color: #bdbdbd;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input::placeholder, textarea::placeholder{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button[type=submit]{
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container{
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+textarea:focus{
+  font-family: Arial, Helvetica, sans-serif;
 }
