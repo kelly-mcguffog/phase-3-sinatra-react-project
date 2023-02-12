@@ -6,6 +6,27 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
+#logo{
+  font-size: 45px;
+  text-align: center;
+}
+
+.navLink{
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  margin: 20px 0px 20px 10px;
+}
+.link{
+  color: red;
+}
+.link.active{
+  text-decoration: underline;
+}
+#main-nav{
+  display: flex;
+  justify-content: center;
+}
 
 #container{
   display: flex;
@@ -44,25 +65,28 @@ body{
 }
 .featured-details{
   width: 300px;
+  margin: 20px;
 }
 .featured-artwork-card, .featured-artist-card{
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: space-between;
   width: 100%;
-  background-color: aqua;
+  background-color: #f0f0f0;
 }
 .info{
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 95%;
 }
 .details-container{
-  width: 500px;
+  width: 46%;
 }
 .image-container{
-  width: 350px;
-  height: 250px;
+  /* width: 350px;
+  height: 250px; */
+  width: 50%;
+  height: 100%;
 }
 .artwork{
   display: block;

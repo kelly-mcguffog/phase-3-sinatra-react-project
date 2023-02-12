@@ -5,7 +5,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import ArtworksContainer from './ArtworksContainer';
+import Artworks from './Artworks';
 import HomeContainer from './HomeContainer';
 import Artists from './Artists';
 import NavBar from './Navbar';
@@ -20,7 +20,7 @@ function App() {
             <HomeContainer />
           </Route>
           <Route path="/artworks">
-            <ArtworksContainer />
+            <Artworks />
           </Route>
           <Route path="/artists">
             <Artists />
