@@ -11,9 +11,9 @@ function ArtistsContainer(){
     
     return(
         <main id="container">
-            {artists.map(artist => <ArtistCard key={artist.id} artist={artist}/>)}
+            {artists.map(artist => <ArtistCard key={artist.id} artist={artist}/>)}      
         </main>
     )
 }
 
-export default ArtistsContainer
+export default ArtistsContainer;
