@@ -11,6 +11,7 @@ import ArtworksContainer from './ArtworksContainer';
 import ArtistsContainer from './ArtistsContainer';
 import ArtworkInfo from './ArtworkInfo';
 import ArtistInfo from './ArtistInfo';
+import NewArtwork from './NewArtwork';
 
 function App() {
   
@@ -42,7 +43,7 @@ function App() {
             <ArtworksContainer artworks={artworks}/>
           </Route>
           <Route path="/artworks/:id/details">
-            <ArtworkInfo />
+            <ArtworkInfo artworks={artworks}/>
           </Route>
           <Route exact path="/artists">
             <ArtistsContainer artists={artists}/>
@@ -50,9 +51,9 @@ function App() {
           <Route path="/artists/:id/details">
             <ArtistInfo artists={artists}/>
           </Route>
-          {/* <Route path="/artists/:id/new">
+          <Route path="/artists/:id/new">
             <NewArtwork />
-          </Route> */}
+          </Route>
         </Switch>
       </Router>
   );

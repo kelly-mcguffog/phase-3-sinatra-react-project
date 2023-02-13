@@ -7,30 +7,32 @@ function ArtistInfo({artists}){
     const {id} = useParams()
     const artist = artists.find(a => a.id == id)
 
-    // const {headshot_url, name, bio, birth_date, death_date, artworks} = artist
-
-    console.log(artist)
+    const {headshot_url, name, bio, birth_date, death_date, artworks} = artist
 
     return(
         <>
             <div className="info">
-                {/* <div className="image-container">
-                    <img className="image" src={artist.headshot_url} alt={artist.name} />
+                <div className="image-container">
+                    <img className="image" src={headshot_url} alt={name} />
                 </div>
                 <div className="details-container">
-                    <h2>{artist.name}</h2>
-                    <h4>{artist.birth_date}{artist.death_date}</h4>
-                    <p>{artist.bio}</p>
+                    <h2 className="details">{name}</h2>
+                    <h4 className="details">{birth_date} – {death_date}</h4>
+                    <p className="details">{bio}</p>
                 </div>
             </div>
             <div className="artwork">
-                <h1>Artwork:</h1>
-                <Link to={`/artists/${id}/new`}>
-                    <div className="button">
-                        <h5>Add Artwork</h5>
-                    </div>
-                </Link> */}
-                {/* {artworks.map((artwork) => <ArtworkCard key={artwork.id} artwork={artwork}/>)} */}
+                <div className="header">
+                    <h1>Pieces by {name}:</h1>
+                    <Link to={`/artists/${id}/new`}>
+                        <div className="button">
+                            <h5>Add Artwork</h5>
+                        </div>
+                    </Link>
+                </div>
+                <div className="carousel">
+                    {artworks.map((artwork) => <ArtworkCard key={artwork.id} artwork={artwork}/>)}
+                </div>
             </div>
         </>
     )

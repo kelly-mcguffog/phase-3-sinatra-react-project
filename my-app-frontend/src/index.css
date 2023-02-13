@@ -94,9 +94,18 @@ body{
   width: 50%;
   height: 100%;
 }
-.artwork{
+.header{
   display: block;
   margin: 50px;
+  text-align: center;
+}
+.carousel{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.details{
+  margin: 10px;
 }
 
 
