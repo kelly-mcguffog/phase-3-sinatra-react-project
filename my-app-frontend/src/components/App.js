@@ -1,16 +1,35 @@
 import '../index.css';
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import Artworks from './Artworks';
 import HomeContainer from './HomeContainer';
-import Artists from './Artists';
 import NavBar from './Navbar';
+import ArtworksContainer from './ArtworksContainer';
+import ArtistsContainer from './ArtistsContainer';
+import ArtworkInfo from './ArtworkInfo';
+import ArtistInfo from './ArtistInfo';
 
 function App() {
+  
+  const [artists, setArtists] = useState([])
+  const [artworks, setArtworks] = useState([])
+
+  useEffect(() => {
+    Promise.all([
+      fetch("http://localhost:9292/artists"),
+      fetch("http://localhost:9292/artworks"),
+    ])
+    .then(([resArtists, resArtworks]) => 
+      Promise.all([resArtists.json(), resArtworks.json()])
+    )
+    .then(([dataArtists, dataArtworks]) => {
+      setArtists(dataArtists);
+      setArtworks(dataArtworks);
+    }); 
+  },[])
 
   return (
       <Router>
@@ -19,12 +38,21 @@ function App() {
           <Route exact path="/">
             <HomeContainer />
           </Route>
-          <Route path="/artworks">
-            <Artworks />
+          <Route exact path="/artworks">
+            <ArtworksContainer artworks={artworks}/>
           </Route>
-          <Route path="/artists">
-            <Artists />
+          <Route path="/artworks/:id/details">
+            <ArtworkInfo />
           </Route>
+          <Route exact path="/artists">
+            <ArtistsContainer artists={artists}/>
+          </Route>
+          <Route path="/artists/:id/details">
+            <ArtistInfo artists={artists}/>
+          </Route>
+          {/* <Route path="/artists/:id/new">
+            <NewArtwork />
+          </Route> */}
         </Switch>
       </Router>
   );

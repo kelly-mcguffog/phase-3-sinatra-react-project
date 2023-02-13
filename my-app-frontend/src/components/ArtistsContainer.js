@@ -1,13 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import ArtistCard from "./ArtistCard";
 
-function ArtistsContainer(){
-    const [artists, setArtists] = useState([])
-    useEffect(() => {
-        fetch("http://localhost:9292/artists")
-        .then(res => res.json())
-        .then(data => setArtists(data))
-    },[])
+function ArtistsContainer({artists}){
     
     return(
         <main id="container">

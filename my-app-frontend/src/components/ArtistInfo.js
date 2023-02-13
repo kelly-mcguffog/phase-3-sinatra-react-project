@@ -1,45 +1,26 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
-import ImageCarousel from "./ImageCarousel";
+import ArtworkCard from "./ArtworkCard";
 
-function ArtistInfo(){
-    
-    const [artist, setArtist] = useState([{}])
+function ArtistInfo({artists}){
+
     const {id} = useParams()
-    const {headshot_url, name, bio, birth_date, death_date} = artist
-    // const [loading, setLoading] = useState(false);
-    // const [error, setError] = useState();
+    const artist = artists.find(a => a.id == id)
 
-    useEffect(() => {
-        fetch(`http://localhost:9292/artists/${id}`)
-        .then(res => res.json())
-        .then(data => setArtist(data))
-        // .catch((err) => {
-        //     setError(err);
-        //   })
-        //   .finally(() => {
-        //     setLoading(false);
-        //   });
-    },[id]);
+    // const {headshot_url, name, bio, birth_date, death_date, artworks} = artist
 
-    // if (loading) {
-    //     return <p>Data is loading...</p>;
-    // }
-    // if (error || !Array.isArray(artist)) {
-    //     return <p>There was an error loading your data!</p>;
-    // }
-    
+    console.log(artist)
 
     return(
         <>
             <div className="info">
-                <div className="image-container">
-                    <img className="image" src={headshot_url} alt={name} />
+                {/* <div className="image-container">
+                    <img className="image" src={artist.headshot_url} alt={artist.name} />
                 </div>
                 <div className="details-container">
-                    <h2>{name}</h2>
-                    <h4>{birth_date}{death_date}</h4>
-                    <p>{bio}</p>
+                    <h2>{artist.name}</h2>
+                    <h4>{artist.birth_date}{artist.death_date}</h4>
+                    <p>{artist.bio}</p>
                 </div>
             </div>
             <div className="artwork">
@@ -48,8 +29,8 @@ function ArtistInfo(){
                     <div className="button">
                         <h5>Add Artwork</h5>
                     </div>
-                </Link>
-                {/* {artworks.map(artwork => <ImageCarousel key={artwork.id} artwork={artwork}/>)} */}
+                </Link> */}
+                {/* {artworks.map((artwork) => <ArtworkCard key={artwork.id} artwork={artwork}/>)} */}
             </div>
         </>
     )
