@@ -12,11 +12,14 @@ import ArtistsContainer from './ArtistsContainer';
 import ArtworkInfo from './ArtworkInfo';
 import ArtistInfo from './ArtistInfo';
 import NewArtwork from './NewArtwork';
+import EditArtwork from './EditArtwork';
 
 function App() {
   
   const [artists, setArtists] = useState([])
   const [artworks, setArtworks] = useState([])
+  // const [editArtwork, setEditArtwork] = useState(null)
+
 
   useEffect(() => {
     Promise.all([
@@ -32,6 +35,30 @@ function App() {
     }); 
   },[])
 
+
+
+  const onAddNewArtwork = (newArtwork) => {
+    setArtworks([...artworks, newArtwork])
+  }
+
+  const onDeleteArtwork = (id) => {
+    setArtworks(artworks.filter(artwork => artwork.id !== id))
+  }
+
+const onUpdateArtwork = (updatedArtwork) => {
+    const updatedList = artworks.map(artwork => {
+        if(artwork.id === updatedArtwork.id){
+            return updatedArtwork
+        } else {
+            return artwork
+        }
+    })
+
+    setArtworks(updatedList)
+    // setEditMedia(null)
+}
+
+
   return (
       <Router>
         <NavBar />
@@ -40,10 +67,13 @@ function App() {
             <HomeContainer />
           </Route>
           <Route exact path="/artworks">
-            <ArtworksContainer artworks={artworks}/>
+            <ArtworksContainer onDeleteArtwork={onDeleteArtwork} artworks={artworks}/>
           </Route>
           <Route path="/artworks/:id/details">
             <ArtworkInfo artworks={artworks}/>
+          </Route>
+          <Route path="/artworks/:id/edit">
+            <EditArtwork onUpdateArtwork={onUpdateArtwork} artworks={artworks}/>
           </Route>
           <Route exact path="/artists">
             <ArtistsContainer artists={artists}/>
@@ -52,7 +82,7 @@ function App() {
             <ArtistInfo artists={artists}/>
           </Route>
           <Route path="/artists/:id/new">
-            <NewArtwork />
+            <NewArtwork onAddNewArtwork={onAddNewArtwork}/>
           </Route>
         </Switch>
       </Router>

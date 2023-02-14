@@ -1,10 +1,10 @@
 import React from "react";
 import ArtworkCard from "./ArtworkCard";
 
-function ArtworksContainer({artworks}){
+function ArtworksContainer({artworks, onDeleteArtwork}){
     return(
         <main id="container">
-            {artworks.map(artwork => <ArtworkCard key={artwork.id} artwork={artwork}/>)}
+            {artworks.map(artwork => <ArtworkCard key={artwork.id} artwork={artwork} onDeleteArtwork={onDeleteArtwork}/>)}
         </main>
     )
 }

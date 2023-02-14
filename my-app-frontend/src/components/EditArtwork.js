@@ -1,53 +1,54 @@
 import React, {useState} from "react";
 import { useParams, useHistory } from "react-router-dom";
 
+function EditArtwork({onUpdateArtwork, artworks}){
 
-function NewArtwork({onAddNewArtwork}){
-    const {id} = useParams()
-    const initialState = {
-        title: "",
-        description: "",
-        medium: "",
-        price: "",
-        year_created: "",
-        image_url: "",
-        artist_id: id
-    }
+    const {id} = useParams();
+    const initialState = artworks.find(a => a.id == id)
+    console.log(initialState)
 
     const [formData, setFormData] = useState(initialState)
-    const history = useHistory();
+   
+    
+    const {title, description, medium, price, year_created, image_url} = initialState
 
-    function handleChange(event) {
-        setFormData({
-          ...formData,
-          [event.target.name]: event.target.value
-        });
 
-      }
+    const history = useHistory()
 
-      function handleSubmit(e){
-        e.preventDefault();
-        fetch('http://localhost:9292/artworks', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
+    const handleChangeInput = (e) => {
+        setFormData(editFormData => {
+           return({ 
+                ...editFormData,
+                [e.target.name]: e.target.value
+            })          
         })
+    }
+   
+    const handleSubmitEdit = (e) => {
+        e.preventDefault();
+        fetch(`http://localhost:9292/artworks/${id}`,{
+            method: "PATCH",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+
         .then(res => res.json())
-        .then(data => onAddNewArtwork(formData))
+        .then(data => onUpdateArtwork(data))
         history.push("/artworks")
     }
 
+    
     return (
         <div className="form-container">
-            <form className="NewItem" onSubmit={handleSubmit}>
-                <label>
+            <form className="NewItem" onSubmit={handleSubmitEdit}>
+            <label>
                     <input 
                     type="text" 
                     name="title" 
-                    onChange={handleChange}
-                    value={formData.title}
+                    onChange={handleChangeInput}
+                    value={title}
                     className="form-input"
                     placeholder="Artwork Title"
                     />
@@ -55,8 +56,8 @@ function NewArtwork({onAddNewArtwork}){
                 <label>
                     <textarea 
                     name="description" 
-                    onChange={handleChange} 
-                    value={formData.description}
+                    onChange={handleChangeInput} 
+                    value={description}
                     className="form-textarea"
                     placeholder="Description"
                     >
@@ -66,8 +67,8 @@ function NewArtwork({onAddNewArtwork}){
                     <input 
                     type="text" 
                     name="medium" 
-                    onChange={handleChange}
-                    value={formData.medium}
+                    onChange={handleChangeInput}
+                    value={medium}
                     className="form-input"
                     placeholder="Medium"
                     />
@@ -76,8 +77,8 @@ function NewArtwork({onAddNewArtwork}){
                     <input 
                     type="text" 
                     name="price" 
-                    onChange={handleChange}
-                    value={formData.price}
+                    onChange={handleChangeInput}
+                    value={price}
                     className="form-input"
                     placeholder="Price"
                     />
@@ -86,8 +87,8 @@ function NewArtwork({onAddNewArtwork}){
                     <input 
                     type="text" 
                     name="year_created" 
-                    onChange={handleChange}
-                    value={formData.year_created}
+                    onChange={handleChangeInput}
+                    value={year_created}
                     className="form-input"
                     placeholder="Created in Year"
                     />
@@ -96,18 +97,17 @@ function NewArtwork({onAddNewArtwork}){
                     <input 
                     type="text" 
                     name="image_url" 
-                    onChange={handleChange} 
-                    value={formData.image_url}
+                    onChange={handleChangeInput} 
+                    value={image_url}
                     placeholder="Enter an Image URL"
                     className="form-input"
                     />
                 </label>
                 
-            
-                <button onChange={(e) => setFormData(e.target.value)} name="submit" type="submit">Add to List</button>
+                <button type="submit">Update Details</button>
             </form>
         </div>
     );
 }
 
-export default NewArtwork
+export default EditArtwork;

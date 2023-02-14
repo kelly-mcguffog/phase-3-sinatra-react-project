@@ -2,14 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function ArtistCard({artist}){
-    const {id, name, headshot_url} = artist
+    const {id, name, headshot_url, birth_date, death_date} = artist
     return(
+
         <div className="card">
-        <Link to={`/artists/${id}/details`}>
+        <Link className="card-link" to={`/artists/${id}/details`}>
           <img className="card-image" src={headshot_url} alt={name} />
-          {/* <h2>{title}</h2> */}
-          {/* <h4>{artist.name}</h4> */}
-          {/* <h4>{date_created}</h4> */}
+          <div className="card-details">
+            <h3 className="main-card-details">{name}</h3>
+            <h3 className="secondary-card-details">{birth_date} – {death_date}</h3>
+          </div>
           </Link>
         </div>
     )

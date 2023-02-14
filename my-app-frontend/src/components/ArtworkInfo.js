@@ -20,8 +20,8 @@ function ArtworkInfo({artworks}){
             <div className="info">
                 <div className="image-container">
                     <img className="image" src={image_url} alt={title} />
-                    <p>Delete</p>
-                    <p>Edit</p>
+                    {/* <p>Delete</p>
+                    <p>Edit</p> */}
                 </div>
                 <div className="details-container">
                     <h2 className="details">{title}</h2>
