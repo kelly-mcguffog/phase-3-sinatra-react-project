@@ -55,7 +55,6 @@ const onUpdateArtwork = (updatedArtwork) => {
     })
 
     setArtworks(updatedList)
-    // setEditMedia(null)
 }
 
 

@@ -8,6 +8,7 @@ function ArtistInfo({artists}){
     const artist = artists.find(a => a.id == id)
 
     const {headshot_url, name, bio, birth_date, death_date, artworks} = artist
+    console.log(artworks)
 
     return(
         <>
@@ -30,9 +31,9 @@ function ArtistInfo({artists}){
                         </div>
                     </Link>
                 </div>
-                <div className="carousel">
+                {/* <div className="carousel">
                     {artworks.map((artwork) => <ArtworkCard key={artwork.id} artwork={artwork}/>)}
-                </div>
+                </div> */}
             </div>
         </>
     )

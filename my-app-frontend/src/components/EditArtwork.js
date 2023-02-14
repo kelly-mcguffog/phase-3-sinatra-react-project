@@ -10,7 +10,7 @@ function EditArtwork({onUpdateArtwork, artworks}){
     const [formData, setFormData] = useState(initialState)
    
     
-    const {title, description, medium, price, year_created, image_url} = initialState
+    const {title, description, medium, price, year_created, image_url} = formData
 
 
     const history = useHistory()
@@ -35,7 +35,7 @@ function EditArtwork({onUpdateArtwork, artworks}){
         })
 
         .then(res => res.json())
-        .then(data => onUpdateArtwork(data))
+        .then(data => console.log(data))
         history.push("/artworks")
     }
 

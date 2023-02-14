@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import ArtworkCard from "./ArtworkCard";
+import ArtworksContainer from "./ArtworksContainer";
 // import ImageCarousel from "./ImageCarousel";
 
 function ArtworkInfo({artworks}){
@@ -20,8 +21,6 @@ function ArtworkInfo({artworks}){
             <div className="info">
                 <div className="image-container">
                     <img className="image" src={image_url} alt={title} />
-                    {/* <p>Delete</p>
-                    <p>Edit</p> */}
                 </div>
                 <div className="details-container">
                     <h2 className="details">{title}</h2>
@@ -33,11 +32,11 @@ function ArtworkInfo({artworks}){
             <div className="artwork">
                 <div className="header">
                     <h1>More Pieces by {artist.name}:</h1>
-                    <Link to={`/artists/${id}/new`}>
+                    {/* <Link to={`/artists/${id}/new`}>
                         <div className="button">
                             <h5>Add Artwork</h5>
                         </div>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className="carousel">
                     {other.map(artwork => <ArtworkCard key={artwork.id} artwork={artwork}/>)}

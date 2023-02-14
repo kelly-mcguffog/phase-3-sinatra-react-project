@@ -27,7 +27,7 @@ function ArtworkCard({artwork, onDeleteArtwork}){
             <h3 className="secondary-card-details">{artist.name}</h3>
           </div>
           </Link>
-          <i className="fa-solid fa-times"></i>
+          <i onClick={handleDelete} className="fa-solid fa-times"></i>
           <Link className="card-link" to={`/artworks/${id}/edit`}>
             <i className="fa-solid fa-pen-to-square"></i>
           </Link>
