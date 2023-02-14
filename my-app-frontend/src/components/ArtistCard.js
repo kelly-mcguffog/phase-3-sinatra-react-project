@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function ArtistCard({artist}){
+    
     const {id, name, headshot_url, birth_date, death_date} = artist
     return(
 

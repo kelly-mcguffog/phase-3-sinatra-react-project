@@ -18,7 +18,6 @@ function App() {
   
   const [artists, setArtists] = useState([])
   const [artworks, setArtworks] = useState([])
-  // const [editArtwork, setEditArtwork] = useState(null)
 
 
   useEffect(() => {

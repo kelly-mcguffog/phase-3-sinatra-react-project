@@ -8,13 +8,17 @@ function ArtworkInfo({artworks}){
     
     const {id} = useParams()
     const artwork = artworks.find(a => a.id == id)
-    const {image_url, title, description, medium, price, year_created, artist} = artwork
+
 
     // console.log(artwork)
 
-    const matchedArt = artworks.filter(artwork => artwork.artist_id == artist.id)
-    const other = matchedArt.filter(artwork => artwork.title !== title)
-        console.log(other)
+        if(!artwork){
+            return <h1>loading</h1>
+        }
+        const {image_url, title, description, medium, price, year_created, artist} = artwork
+        const matchedArt = artworks.filter(artwork => artwork.artist_id == artist.id)
+        const other = matchedArt.filter(artwork => artwork.title !== title)
+            console.log(other)
 
     return(
         <>

@@ -6,6 +6,10 @@ function ArtistInfo({artists}){
 
     const {id} = useParams()
     const artist = artists.find(a => a.id == id)
+    
+    if(!artist){
+        return <h1>loading</h1>
+    }
 
     const {headshot_url, name, bio, birth_date, death_date, artworks} = artist
     console.log(artworks)
@@ -31,9 +35,9 @@ function ArtistInfo({artists}){
                         </div>
                     </Link>
                 </div>
-                {/* <div className="carousel">
-                    {artworks.map((artwork) => <ArtworkCard key={artwork.id} artwork={artwork}/>)}
-                </div> */}
+                <div className="carousel">
+                    {artworks.map((artwork) => <ArtworkCard key={artwork.id} propArtist={artist} artwork={artwork}/>)}
+                </div>
             </div>
         </>
     )
