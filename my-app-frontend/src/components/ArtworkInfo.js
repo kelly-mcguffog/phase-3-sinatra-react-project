@@ -1,7 +1,6 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ArtworkCard from "./ArtworkCard";
-import ArtworksContainer from "./ArtworksContainer";
 
 function ArtworkInfo({artworks}){
     
@@ -14,7 +13,6 @@ function ArtworkInfo({artworks}){
         const {image_url, title, description, medium, year_created, artist} = artwork
         const matchedArt = artworks.filter(artwork => artwork.artist_id == artist.id)
         const other = matchedArt.filter(artwork => artwork.title !== title)
-            console.log(other)
 
     return(
         <>
@@ -32,11 +30,6 @@ function ArtworkInfo({artworks}){
             <div className="artwork">
                 <div className="header">
                     <h1>More Pieces by {artist.name}:</h1>
-                    {/* <Link to={`/artists/${id}/new`}>
-                        <div className="button">
-                            <h5>Add Artwork</h5>
-                        </div>
-                    </Link> */}
                 </div>
                 <div className="carousel">
                     {other.map(artwork => <ArtworkCard key={artwork.id} artwork={artwork}/>)}
