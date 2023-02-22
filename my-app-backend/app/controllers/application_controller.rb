@@ -4,21 +4,25 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/artists" do
     artists = Artist.all.order(:name)
-    artists.to_json
+    artists.to_json(include: :artworks)
+  end
+  get "/featured" do
+    artworks = Artwork.all.order(:title).limit(5)
+    artworks.to_json(include: :artist)
   end
   get "/artworks" do
     artworks = Artwork.all.order(:title)
-    artworks.to_json(only: [:id, :title, :date_created, :image_url], include: {
-      artist: {only: [:name]}
-    })
+    artworks.to_json(include: :artist)
   end
-  get "/artists/:id" do
-    artist = Artist.find(params[:id])
-    artist.to_json(include: {artworks: {only: [:id, :title, :date_created, :image_url] }})
-  end
-  get "/artworks/:id" do
-    artwork = Artwork.find(params[:id])
-    artwork.to_json(include: {artist: {only: [:id, :name, :birth_date, :death_date] }})
+  post "/artists" do
+    artist = Artist.create(
+      name: params[:name],
+      bio: params[:bio],
+      birth_date: params[:birth_date],
+      death_date: params[:death_date],
+      headshot_url: params[:headshot_url],
+    )
+    artist.to_json(include: :artworks)
   end
   post "/artworks" do
     artwork = Artwork.create(
@@ -26,18 +30,24 @@ class ApplicationController < Sinatra::Base
       description: params[:description],
       medium: params[:medium],
       price: params[:price],
-      date_created: params[:date_created],
+      year_created: params[:year_created],
       image_url: params[:image_url],
       artist_id: params[:artist_id]
     )
-    artwork.to_json
+    artwork.to_json(include: :artist)
   end
+  
   patch '/artworks/:id' do
     artwork = Artwork.find(params[:id])
     artwork.update(
-      price: params[:price]
+      title: params[:title],
+      description: params[:description],
+      medium: params[:medium],
+      price: params[:price],
+      year_created: params[:year_created],
+      image_url: params[:image_url]
     )
-    artwork.to_json
+    artwork.to_json(include: :artist)
   end
   delete '/artworks/:id' do
     artwork = Artwork.find(params[:id])
