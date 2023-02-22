@@ -42,7 +42,6 @@ body{
 .card{
   width: 350px;
   height: 350px;
-  /* width: 20%; */
   text-align: center;
   cursor: pointer;
   vertical-align: middle;
@@ -57,7 +56,6 @@ body{
   right: 8px;
   font-size: 15px;
   color: gray;
-  /* text-shadow: 2px 1.5px 1px #4f4f4f; */
 }
 .fa-times{
   position: absolute;
@@ -65,9 +63,11 @@ body{
   left: 8px;
   font-size: 15px;
   color: gray;
-  /* text-shadow: 2px 1.5px 1px #4f4f4f; */
 }
-
+h5{
+  font-size: 14px;
+  text-decoration: none;
+}
 .card-image{
   width:  100%;
   height: 90%;
@@ -101,28 +101,32 @@ body{
   margin: 0 auto;
   display: block;
 }
+.featured-cards{
+  margin-top: 25px;
+}
 .featured-details{
   width: 300px;
   margin: 20px;
 }
 .featured-artwork-card, .featured-artist-card{
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: space-between;
   width: 100%;
   background-color: #f0f0f0;
 }
 .info{
   display: flex;
-  justify-content: space-between;
-  width: 95%;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  margin-top: 25px;
 }
 .details-container{
-  width: 46%;
+  width: 45%;
 }
 .image-container{
-  width: 50%;
-  height: 100%;
+  width: 45%;
 }
 .header{
   display: block;
