@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function FeaturedCard({featured}){
     const {id, title, year_created, image_url, artist} = featured
-    const {name, birth_date, death_date, bio, headshot_url} = artist
+    const {name, birth_date, death_date, headshot_url} = artist
     const artist_id = artist.id
     return(
         <div className="featured-cards">

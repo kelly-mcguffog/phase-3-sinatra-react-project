@@ -2,20 +2,16 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import ArtworkCard from "./ArtworkCard";
 import ArtworksContainer from "./ArtworksContainer";
-// import ImageCarousel from "./ImageCarousel";
 
 function ArtworkInfo({artworks}){
     
     const {id} = useParams()
     const artwork = artworks.find(a => a.id == id)
 
-
-    // console.log(artwork)
-
         if(!artwork){
             return <h1>loading</h1>
         }
-        const {image_url, title, description, medium, price, year_created, artist} = artwork
+        const {image_url, title, description, medium, year_created, artist} = artwork
         const matchedArt = artworks.filter(artwork => artwork.artist_id == artist.id)
         const other = matchedArt.filter(artwork => artwork.title !== title)
             console.log(other)

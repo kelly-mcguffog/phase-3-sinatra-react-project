@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 
 function ArtworkCard({artwork, onDeleteArtwork, propArtist}){
     
-    // if(!artwork){
-    //     return <h1>loading</h1>
-    // }
-    const {id, title, date_created, image_url, artist} = artwork;
+    const {id, title, image_url, artist} = artwork;
 
     const foundArtist = propArtist ? propArtist : artist
 
