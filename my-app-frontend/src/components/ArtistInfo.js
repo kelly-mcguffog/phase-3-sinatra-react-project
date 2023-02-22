@@ -12,7 +12,6 @@ function ArtistInfo({artists}){
     }
 
     const {headshot_url, name, bio, birth_date, death_date, artworks} = artist
-    console.log(artworks)
 
     return(
         <>

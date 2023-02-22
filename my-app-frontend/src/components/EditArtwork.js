@@ -35,8 +35,10 @@ function EditArtwork({onUpdateArtwork, artworks}){
         })
 
         .then(res => res.json())
-        .then(data => onUpdateArtwork(data))
-        history.push("/artworks")
+        .then(data => {
+            onUpdateArtwork(data)
+            history.push("/artworks")
+        })
     }
 
     

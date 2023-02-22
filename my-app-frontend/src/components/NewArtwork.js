@@ -35,8 +35,10 @@ function NewArtwork({onAddNewArtwork}){
         body: JSON.stringify(formData)
         })
         .then(res => res.json())
-        .then(data => onAddNewArtwork(formData))
-        history.push("/artworks")
+        .then(data => {
+            onAddNewArtwork(data)
+            history.push("/artworks")
+        })
     }
 
     return (
@@ -103,7 +105,6 @@ function NewArtwork({onAddNewArtwork}){
                     />
                 </label>
                 
-            
                 <button onChange={(e) => setFormData(e.target.value)} name="submit" type="submit">Add to List</button>
             </form>
         </div>

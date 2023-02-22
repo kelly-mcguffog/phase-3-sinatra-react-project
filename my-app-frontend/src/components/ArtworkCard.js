@@ -9,13 +9,13 @@ function ArtworkCard({artwork, onDeleteArtwork, propArtist}){
     const {id, title, date_created, image_url, artist} = artwork;
 
     const foundArtist = propArtist ? propArtist : artist
-    
+
     const handleDelete = () => {
         fetch(`http://localhost:9292/artworks/${id}`, {
           method: 'DELETE'
         })
         .then(res => res.json())
-        .then(data => onDeleteArtwork(id))
+        .then(data => onDeleteArtwork(data))
       }
 
       

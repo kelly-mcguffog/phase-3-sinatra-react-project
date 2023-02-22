@@ -37,6 +37,14 @@ function App() {
 
 
   const onAddNewArtwork = (newArtwork) => {
+    const updatedArtists = artists.map(artist => {
+      if(artist.id === newArtwork.artist_id){
+        return {...artist, artworks: [...artist.artworks, newArtwork]}
+      }else{
+        return artist
+      }
+    })
+    setArtists(updatedArtists)
     setArtworks([...artworks, newArtwork])
   }
 
@@ -45,6 +53,7 @@ function App() {
   }
 
 const onUpdateArtwork = (updatedArtwork) => {
+
     const updatedList = artworks.map(artwork => {
         if(artwork.id === updatedArtwork.id){
             return updatedArtwork
@@ -52,8 +61,17 @@ const onUpdateArtwork = (updatedArtwork) => {
             return artwork
         }
     })
-
     setArtworks(updatedList)
+
+    const updatedArtists = artists.map(artist => {
+      const match = updatedList.filter(item => item.artist_id === updatedArtwork.artist_id)
+      if(artist.id === updatedArtwork.artist_id){
+        return {...artist, artworks: match}
+      }else{
+        return artist
+      }
+    })
+    setArtists(updatedArtists)
 }
 
 

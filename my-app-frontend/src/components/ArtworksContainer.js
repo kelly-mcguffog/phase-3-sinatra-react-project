@@ -9,4 +9,4 @@ function ArtworksContainer({artworks, onDeleteArtwork}){
     )
 }
 
-export default ArtworksContainer
+export default ArtworksContainer;
