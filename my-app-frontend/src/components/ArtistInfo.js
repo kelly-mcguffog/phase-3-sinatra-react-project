@@ -28,7 +28,7 @@ function ArtistInfo({artists}){
             <div className="artwork">
                 <div className="header">
                     <h1>Pieces by {name}:</h1>
-                    <Link className="card-link" to={`/artists/${id}/new`}>
+                    <Link to={`/artists/${id}/new`}>
                         <div className="button">
                             <h5>Add Artwork</h5>
                         </div>
