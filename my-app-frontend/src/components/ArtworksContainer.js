@@ -3,7 +3,7 @@ import ArtworkCard from "./ArtworkCard";
 
 function ArtworksContainer({artworks, onDeleteArtwork}){
     return(
-        <main id="container">
+        <main className="container">
             {artworks.map(artwork => <ArtworkCard key={artwork.id} artwork={artwork} onDeleteArtwork={onDeleteArtwork}/>)}
         </main>
     )

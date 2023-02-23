@@ -5,7 +5,6 @@ function EditArtwork({onUpdateArtwork, artworks}){
 
     const {id} = useParams();
     const initialState = artworks.find(a => a.id === id)
-    console.log(initialState)
 
     const [formData, setFormData] = useState(initialState)
    

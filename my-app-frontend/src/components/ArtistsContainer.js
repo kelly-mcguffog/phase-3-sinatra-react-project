@@ -4,7 +4,7 @@ import ArtistCard from "./ArtistCard";
 function ArtistsContainer({artists}){
     
     return(
-        <main id="container">
+        <main className="container">
             {artists.map(artist => <ArtistCard key={artist.id} artist={artist}/>)}      
         </main>
     )

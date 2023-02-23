@@ -10,7 +10,7 @@ function HomeContainer(){
     },[])
     
     return(
-        <main id="container">
+        <main className="home-container">
             {featuredArt.map(featured => <FeaturedCard key={featured.id} featured={featured}/>)}
         </main>
     )

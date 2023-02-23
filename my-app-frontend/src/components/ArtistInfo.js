@@ -5,7 +5,7 @@ import ArtworkCard from "./ArtworkCard";
 function ArtistInfo({artists}){
 
     const {id} = useParams()
-    const artist = artists.find(a => a.id === id)
+    const artist = artists.find(a => a.id == id)
     
     if(!artist){
         return <h1>loading</h1>

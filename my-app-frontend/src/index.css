@@ -10,7 +10,6 @@ body{
   font-size: 45px;
   text-align: center;
 }
-
 .button{
   font-size: 12px;
   margin-top: 20px;
@@ -34,7 +33,7 @@ body{
   justify-content: center;
 }
 
-#container{
+.container{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -101,9 +100,6 @@ h5{
   margin: 0 auto;
   display: block;
 }
-.featured-cards{
-  margin-top: 25px;
-}
 .featured-details{
   width: 300px;
   margin: 20px;
@@ -120,7 +116,10 @@ h5{
   flex-wrap: wrap;
   align-items: center;
   gap: 30px;
-  margin-top: 25px;
+  margin-top: 30px;
+}
+.home-container{
+  margin-top: 30px;
 }
 .details-container{
   width: 45%;
@@ -169,7 +168,6 @@ button[type=submit]{
   border-radius: 4px;
   cursor: pointer;
 }
-
 .form-container{
   border-radius: 5px;
   width: 80%;
