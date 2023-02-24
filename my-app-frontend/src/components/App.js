@@ -48,10 +48,6 @@ function App() {
     setArtworks([...artworks, newArtwork])
   }
 
-  const onDeleteArtwork = (id) => {
-    setArtworks(artworks.filter(artwork => artwork.id !== id))
-  }
-
 const onUpdateArtwork = (updatedArtwork) => {
 
     const updatedList = artworks.map(artwork => {
@@ -74,6 +70,19 @@ const onUpdateArtwork = (updatedArtwork) => {
     setArtists(updatedArtists)
 }
 
+const onDeleteArtwork = (selectedArtwork) => {
+  const updatedList = artworks.filter(artwork => artwork.id !== selectedArtwork.id)
+  const updatedArtists = artists.map(artist => {
+    const match = [...artist.artworks].filter(artwork => artwork.id !== selectedArtwork.id)
+    if(artist.id === selectedArtwork.artist_id){
+      return {...artist, artworks: match}
+    }else{
+      return artist
+    }
+  })
+  setArtists(updatedArtists)
+  setArtworks(updatedList)
+}
 
   return (
       <Router>
