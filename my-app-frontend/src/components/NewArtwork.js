@@ -37,7 +37,8 @@ function NewArtwork({onAddNewArtwork}){
         .then(res => res.json())
         .then(data => {
             onAddNewArtwork(data)
-            history.push("/artworks")
+            // history.push("/artworks")
+            history.push(`/artists/${id}/details`)
         })
     }
 
